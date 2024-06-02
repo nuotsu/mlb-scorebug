@@ -49,11 +49,16 @@ declare global {
 		// games
 
 		interface GameStatus {
-			abstractGameState: string // can be 'Live', 'Final', 'Preview'
+			abstractGameState: 'Live' | 'Final' | 'Preview'
 			abstractGameCode: string // first char of abstractGameState ig
-			detailedState: string // can be 'In Progress', 'Final', 'Scheduled'
+			detailedState:
+				| 'Scheduled'
+				| 'Warmup'
+				| 'Pre-Game'
+				| 'In Progress'
+				| 'Game Over'
 			statusCode: string // first char of detailedState
-			codedGameState: string // dupe of statusCode?
+			codedGameState: GameStatus['statusCode'] // dupe of statusCode
 			startTimeTBD: boolean
 		}
 

@@ -1,3 +1,5 @@
+import Header from '@/ui/Header'
+import Footer from '@/ui/Footer'
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 
@@ -15,7 +17,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body className="bg-canvas text-ink">
+				<Header />
+				<main>{children}</main>
+				<Footer />
+			</body>
 		</html>
 	)
 }

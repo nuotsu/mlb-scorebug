@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import useSWR, { type SWRConfiguration } from 'swr'
 
 const BASE_URL = 'https://statsapi.mlb.com'
 
@@ -33,9 +33,11 @@ function fetcher(endpoint: string, params?: Record<string, string>) {
 export function liveMLB<T = unknown>(
 	endpoint: string,
 	params?: Record<string, string>,
+	options?: SWRConfiguration,
 ) {
 	return useSWR<T>(endpoint, () => fetcher(endpoint, params), {
-		refreshInterval: 1000 * 10, // 10 sec
+		refreshInterval: 1000 * 5, // seconds
+		...options,
 	})
 }
 

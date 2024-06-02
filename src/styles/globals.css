@@ -4,9 +4,40 @@
 
 @layer base {}
 
-@layer components {}
+@layer components {
+	.pill {
+		padding: 0.2em 0.8em;
+		border-radius: 4em;
+	}
+
+	.carousel {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+
+		&>* {
+			flex: 0 0 min(var(--size, 300px), 80vw);
+			scroll-snap-align: center;
+		}
+	}
+}
 
 @layer utilities {
+	.no-scrollbar {
+		-webkit-overflow-scrolling: touch;
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.with-icon {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
 	/* animations */
 
 	@keyframes anim-fade-to {
@@ -23,7 +54,7 @@
 	.anim-fade-to-b {
 		--x: 0;
 		--y: 0;
-		animation: anim-fade-to 0.2s ease-in-out forwards;
+		animation: anim-fade-to 0.4s ease-in-out forwards;
 	}
 
 	.anim-fade-to-l {
