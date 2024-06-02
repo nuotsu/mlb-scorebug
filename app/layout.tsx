@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-export const metadata: Metadata = {}
+export const metadata: Metadata = {
+	title: 'MLB ScoreBug',
+	icons: {
+		icon: `https://fav.farm/⚾️`,
+	},
+}
 
 export default function RootLayout({
 	children,
