@@ -1,13 +1,14 @@
 'use client'
 
-import { liveMLB } from './lib/mlb'
+import { liveMLB } from '@/lib/mlb'
+import Game from '@/ui/Game'
 
 export default function Page() {
 	const { data, isLoading } = liveMLB<MLB.Schedule>('/schedule', {
 		sportId: '1',
 	})
 
-	const { games } = data?.dates?.[0] ?? {}
+	const date = data?.dates?.[0]
 
 	return (
 		<section>
@@ -15,12 +16,14 @@ export default function Page() {
 
 			{isLoading && <p>Loading...</p>}
 
+			<h2>
+				{date?.totalGames} Games for {date?.date}
+			</h2>
+
 			<ul>
-				{games?.map((game) => (
-					<li key={game.calendarEventID}>
-						{game.teams.away.team.name}
-						{' @ '}
-						{game.teams.home.team.name}
+				{date?.games?.map((game) => (
+					<li key={game.gamePk} data-gamePk={game.gamePk}>
+						<Game game={game} />
 					</li>
 				))}
 			</ul>

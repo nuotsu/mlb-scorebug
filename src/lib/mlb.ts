@@ -3,7 +3,10 @@ import useSWR from 'swr'
 const BASE_URL = 'https://statsapi.mlb.com'
 
 function generateUrl(endpoint: string, params?: Record<string, string>) {
-	const url = new URL('api/v1/' + endpoint, BASE_URL)
+	const url = new URL(
+		endpoint.startsWith('/api/') ? endpoint : `/api/v1${endpoint}`,
+		BASE_URL,
+	)
 
 	url.search = params ? new URLSearchParams(params).toString() : ''
 
@@ -31,5 +34,7 @@ export function liveMLB<T = unknown>(
 	endpoint: string,
 	params?: Record<string, string>,
 ) {
-	return useSWR<T>(endpoint, () => fetcher(endpoint, params))
+	return useSWR<T>(endpoint, () => fetcher(endpoint, params), {
+		refreshInterval: 1000 * 10, // 10 sec
+	})
 }
