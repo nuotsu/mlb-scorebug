@@ -1,7 +1,7 @@
 'use client'
 
 import { liveMLB } from '@/lib/mlb'
-import Game from '@/ui/Game'
+import ScoreBug from '@/ui/ScoreBug'
 
 export default function Page() {
 	const { data, isLoading } = liveMLB<MLB.Schedule>('/schedule', {
@@ -20,10 +20,10 @@ export default function Page() {
 				{date?.totalGames} Games for {date?.date}
 			</h2>
 
-			<ul>
+			<ul className="border">
 				{date?.games?.map((game) => (
-					<li key={game.gamePk} data-gamePk={game.gamePk}>
-						<Game game={game} />
+					<li className="[&+&]:border-t" key={game.gamePk}>
+						<ScoreBug game={game} />
 					</li>
 				))}
 			</ul>

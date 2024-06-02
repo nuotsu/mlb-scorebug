@@ -38,3 +38,24 @@ export function liveMLB<T = unknown>(
 		refreshInterval: 1000 * 10, // 10 sec
 	})
 }
+
+/* specific fetchers */
+
+export function getTeamMeta(team: MLB.NameableObject) {
+	const { data } = liveMLB<{ teams: MLB.Team[] }>(team.link)
+	return data?.teams?.[0]
+}
+
+export function getWinnerProb(game: MLB.ScheduleGame) {
+	const { data } = liveMLB<any>(`/game/${game.gamePk}/winProbability`)
+
+	if (!data?.length || data.length === 1) return {}
+
+	const { homeTeamWinProbability, awayTeamWinProbability } =
+		data[data.length - 1]
+
+	return {
+		team: homeTeamWinProbability > awayTeamWinProbability ? 'home' : 'away',
+		probability: Math.max(homeTeamWinProbability, awayTeamWinProbability),
+	}
+}
