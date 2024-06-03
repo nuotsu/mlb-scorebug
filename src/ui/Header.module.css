@@ -8,6 +8,6 @@
 		bottom: -1rem;
 		z-index: -1;
 		mask: linear-gradient(to bottom, #000 25%, transparent);
-		@apply backdrop-blur-sm;
+		@apply backdrop-blur-sm backdrop-saturate-150;
 	}
 }

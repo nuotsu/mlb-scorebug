@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {}
+@layer base {
+	* {
+		min-width: 0;
+	}
+}
 
 @layer components {
+	/* typography */
+
+	.with-icon {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
+	/* components */
+
 	.pill {
 		padding: 0.2em 0.8em;
 		border-radius: 4em;
@@ -30,12 +44,6 @@
 		&::-webkit-scrollbar {
 			display: none;
 		}
-	}
-
-	.with-icon {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5em;
 	}
 
 	/* animations */

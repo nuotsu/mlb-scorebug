@@ -19,6 +19,7 @@ declare global {
 
 		interface NameableObject extends IdentifiableObject {
 			name: string
+			fullName?: string
 		}
 
 		// misc
@@ -56,6 +57,9 @@ declare global {
 				| 'Warmup'
 				| 'Pre-Game'
 				| 'In Progress'
+				| 'Umpire review'
+				| 'Manager challenge'
+				| 'Final'
 				| 'Game Over'
 			statusCode: string // first char of detailedState
 			codedGameState: GameStatus['statusCode'] // dupe of statusCode
@@ -403,6 +407,7 @@ declare global {
 			score?: number // int; current game score; only present if game is in progress
 			team: NameableObject
 			leagueRecord: LeagueRecord
+			isWinner?: boolean
 		}
 
 		interface GameContent {
@@ -716,8 +721,9 @@ declare global {
 		interface LiveLineScore extends PlayCount {
 			currentInning: number // int
 			currentInningOrdinal: string // above as an ordinal, i.e. "1st"
-			inningState: string // "Top", "Middle", "Bottom"
-			inningHalf: string // "Top", "Bottom"
+			isTopInning: boolean
+			inningState: 'Top' | 'Middle' | 'Bottom'
+			inningHalf: 'Top' | 'Bottom'
 			scheduledInnings: number
 			innings: Inning[]
 			teams: LineScoreTeams
