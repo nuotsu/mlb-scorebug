@@ -1,7 +1,8 @@
 'use client'
 
-import { getTeamMeta, getWinnerProb } from '@/lib/mlb'
+import { getTeamMeta } from '@/lib/mlb'
 import { cn } from '@/lib/utils'
+import WinProbability from './WinProbability'
 import Panel from './Panel'
 
 export default function TeamScore({
@@ -13,7 +14,6 @@ export default function TeamScore({
 }) {
 	const team = game.teams[side]
 	const meta = getTeamMeta(team.team)
-	const { team: winner, probability } = getWinnerProb(game)
 
 	return (
 		<>
@@ -45,13 +45,7 @@ export default function TeamScore({
 						({team.leagueRecord.wins}-{team.leagueRecord.losses})
 					</small>
 
-					{side === winner &&
-						probability !== 50 &&
-						game.status.detailedState === 'In Progress' && (
-							<strong className="pill shrink-0 bg-green-100 text-xxs tabular-nums text-green-600">
-								<Panel>{probability?.toFixed(1)}%</Panel>
-							</strong>
-						)}
+					<WinProbability side={side} game={game} />
 				</div>
 			</dt>
 
