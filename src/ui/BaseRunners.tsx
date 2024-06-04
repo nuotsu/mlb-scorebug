@@ -15,3 +15,15 @@ export default function BaseRunners({ runners }: { runners?: number[] }) {
 		</div>
 	)
 }
+
+const runnerKeys: Record<string, number> = {
+	first: 0,
+	second: 1,
+	third: 2,
+}
+
+export function getRunners(linescore: MLB.LiveLineScore) {
+	return Object.keys(linescore.offense)
+		.map((key) => runnerKeys[key])
+		.filter(Number.isInteger)
+}

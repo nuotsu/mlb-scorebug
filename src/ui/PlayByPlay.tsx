@@ -2,13 +2,12 @@
 
 import { liveMLB } from '@/lib/mlb'
 import Loading from './Loading'
-import BaseRunners from './BaseRunners'
+import BaseRunners, { getRunners } from './BaseRunners'
 import OutCount from './OutCount'
 import Inning from './Inning'
 import BallsStrikes from './BallsStrikes'
-import Panel from './Panel'
 import Marquee from './Marquee'
-import { cn } from '@/lib/utils'
+import AtBat from './AtBat'
 
 type States = MLB.GameStatus['detailedState'][]
 
@@ -19,15 +18,14 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 	const { currentPlay } = data?.liveData.plays || {}
 	const inReview = reviewStates.includes(game.status.detailedState)
 
-	const isLive = (['In Progress', ...reviewStates] as States).includes(
-		data?.gameData.status.detailedState!,
-	)
-
 	const { linescore } = data?.liveData || {}
 	if (!linescore) return <Loading />
 
 	const isMiddle = linescore.inningState === 'Middle'
 
+	const isLive = (['In Progress', ...reviewStates] as States).includes(
+		data?.gameData.status.detailedState!,
+	)
 	if (!isLive) return <div className="m-auto">{game.status.detailedState}</div>
 
 	return (
@@ -43,16 +41,15 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 			</Marquee>
 
 			<div className="flex items-center gap-4">
-				<div className="ml-auto grid transition-opacity *:m-auto @xl:ml-0">
+				<div className="ml-auto grid *:m-auto @xl:ml-0">
 					<BaseRunners
-						runners={!isMiddle ? currentPlay?.runnerIndex : undefined}
+						runners={!isMiddle ? getRunners(linescore) : undefined}
 					/>
 					<OutCount value={!isMiddle ? linescore.outs : undefined} />
 				</div>
 
 				<div className="mr-auto flex flex-col items-center justify-center gap-x-3 gap-y-1 @xs:flex-row">
 					<BallsStrikes
-						className={cn('transition-opacity', isMiddle && 'opacity-10')}
 						balls={!isMiddle ? linescore.balls : 0}
 						strikes={!isMiddle ? linescore.strikes : 0}
 					/>
@@ -62,14 +59,7 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 					/>
 				</div>
 
-				<div className="transtion-opaciity hidden gap-1 overflow-hidden whitespace-nowrap text-xs *:ml-auto *:flex *:gap-x-1 @xl:grid">
-					<div>
-						P: <Panel>{linescore.defense.pitcher.fullName}</Panel>
-					</div>
-					<div>
-						AB: <Panel>{linescore.offense.batter.fullName}</Panel>
-					</div>
-				</div>
+				<AtBat linescore={linescore} />
 			</div>
 		</>
 	)
