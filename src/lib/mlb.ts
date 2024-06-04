@@ -19,7 +19,7 @@ export async function fetchMLB<T = unknown>(
 ): Promise<T> {
 	const res = await fetch(generateUrl(endpoint, params), {
 		next: {
-			revalidate: 1000 * 60 * 15, // 15 minutes
+			revalidate: 60 * 15, // 15 minutes
 		},
 	})
 
