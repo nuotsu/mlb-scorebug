@@ -43,7 +43,7 @@ export default async function TeamScore({
 						({team.leagueRecord.wins}-{team.leagueRecord.losses})
 					</small>
 
-					<WinProbability side={side} game={game} />
+					<WinProbability game={game} side={side} />
 				</div>
 			</dt>
 

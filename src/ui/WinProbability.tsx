@@ -4,11 +4,11 @@ import { getWinnerProb } from '@/lib/mlb'
 import Panel from './Panel'
 
 export default function WinProbability({
-	side,
 	game,
+	side,
 }: {
-	side: 'away' | 'home'
 	game: MLB.ScheduleGame
+	side: 'away' | 'home'
 }) {
 	const { team: winner, probability } = getWinnerProb(game)
 
