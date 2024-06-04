@@ -22,12 +22,13 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 	const isLive = (['In Progress', ...reviewStates] as States).includes(
 		data?.gameData.status.detailedState!,
 	)
-	if (!isLive) return <div className="m-auto">{game.status.detailedState}</div>
 
 	const { linescore } = data?.liveData || {}
 	if (!linescore) return <Loading />
 
 	const isMiddle = linescore.inningState === 'Middle'
+
+	if (!isLive) return <div className="m-auto">{game.status.detailedState}</div>
 
 	return (
 		<>

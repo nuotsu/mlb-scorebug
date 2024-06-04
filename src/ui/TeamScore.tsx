@@ -47,7 +47,7 @@ export default async function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="w-[2.5ch] text-center text-2xl tabular-nums">
+			<dd className="w-[2.5ch] text-center text-2xl">
 				<Panel tag="b">{team.score}</Panel>
 			</dd>
 		</>
