@@ -20,7 +20,7 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 
 	const { linescore } = data?.liveData || {}
 
-	if (!linescore) return <Loading />
+	if (!linescore) return <Loading className="m-auto" />
 
 	const isMiddle = linescore.inningState === 'Middle'
 
