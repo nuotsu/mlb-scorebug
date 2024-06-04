@@ -1,18 +1,13 @@
-'use client'
-
-import { liveMLB } from '@/lib/mlb'
+import { fetchMLB } from '@/lib/mlb'
 import ScoreBug from '@/ui/ScoreBug'
-import Loading from './Loading'
 import { cn } from '@/lib/utils'
 
-export default function GameList() {
-	const { data, isLoading } = liveMLB<MLB.Schedule>('/schedule', {
+export default async function GameList() {
+	const { dates } = await fetchMLB<MLB.Schedule>('/schedule', {
 		sportId: '1',
 	})
 
-	const today = data?.dates?.[0]
-
-	if (isLoading) return <Loading what="today's games" />
+	const today = dates?.[0]
 
 	return (
 		<section>

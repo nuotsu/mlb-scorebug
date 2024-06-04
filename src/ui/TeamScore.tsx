@@ -1,11 +1,9 @@
-'use client'
-
 import { getTeamMeta } from '@/lib/mlb'
-import { cn } from '@/lib/utils'
 import WinProbability from './WinProbability'
 import Panel from './Panel'
+import { cn } from '@/lib/utils'
 
-export default function TeamScore({
+export default async function TeamScore({
 	side,
 	game,
 }: {
@@ -13,7 +11,7 @@ export default function TeamScore({
 	game: MLB.ScheduleGame
 }) {
 	const team = game.teams[side]
-	const meta = getTeamMeta(team.team)
+	const meta = await getTeamMeta(team.team)
 
 	return (
 		<>

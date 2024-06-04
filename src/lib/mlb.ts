@@ -19,7 +19,7 @@ export async function fetchMLB<T = unknown>(
 ): Promise<T> {
 	const res = await fetch(generateUrl(endpoint, params), {
 		next: {
-			revalidate: 0,
+			revalidate: 1000 * 60 * 15, // 15 minutes
 		},
 	})
 
@@ -43,9 +43,9 @@ export function liveMLB<T = unknown>(
 
 /* specific fetchers */
 
-export function getTeamMeta(team: MLB.NameableObject) {
-	const { data } = liveMLB<{ teams: MLB.Team[] }>(team.link)
-	return data?.teams?.[0]
+export async function getTeamMeta(team: MLB.NameableObject) {
+	const { teams } = await fetchMLB<{ teams: MLB.Team[] }>(team.link)
+	return teams?.[0]
 }
 
 export function getWinnerProb(game: MLB.ScheduleGame) {
