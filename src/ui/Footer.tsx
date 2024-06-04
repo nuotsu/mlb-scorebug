@@ -3,7 +3,10 @@ export default function Footer() {
 		<footer className="p-4 text-center text-xs">
 			{'</> by '}
 
-			<a className="hover:underline" href="https://github.com/nuotsu">
+			<a
+				className="hover:underline"
+				href="https://github.com/nuotsu/mlb-scorebug"
+			>
 				nuotsu
 			</a>
 		</footer>

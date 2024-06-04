@@ -1,6 +1,6 @@
 import { getTeamMeta } from '@/lib/mlb'
 import WinProbability from './WinProbability'
-import Panel from './Panel'
+import Score from './Score'
 import { cn } from '@/lib/utils'
 
 export default async function TeamScore({
@@ -47,8 +47,8 @@ export default async function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="w-[2.5ch] text-center text-2xl">
-				<Panel tag="b">{team.score}</Panel>
+			<dd className="w-[2.5ch] text-center">
+				<Score game={game} side={side} />
 			</dd>
 		</>
 	)

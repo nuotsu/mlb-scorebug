@@ -36,7 +36,7 @@ export function liveMLB<T = unknown>(
 	options?: SWRConfiguration,
 ) {
 	return useSWR<T>(endpoint, () => fetcher(endpoint, params), {
-		refreshInterval: 1000 * 5, // seconds
+		refreshInterval: 1000 * 3, // seconds
 		...options,
 	})
 }
