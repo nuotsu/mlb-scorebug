@@ -47,7 +47,7 @@ export default async function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="w-[2.5ch] text-center">
+			<dd className="w-[3ch] text-center">
 				<Score game={game} side={side} />
 			</dd>
 		</>
