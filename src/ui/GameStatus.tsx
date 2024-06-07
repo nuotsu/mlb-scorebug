@@ -1,10 +1,6 @@
-type States = MLB.GameStatus['detailedState'][]
+import formatDate from '@/lib/formatDate'
 
-const { format } = new Intl.DateTimeFormat('en-US', {
-	hour: 'numeric',
-	minute: 'numeric',
-	timeZoneName: 'shortGeneric',
-})
+type States = MLB.GameStatus['detailedState'][]
 
 export default function GameStatus({ game }: { game: MLB.ScheduleGame }) {
 	return (
@@ -15,7 +11,11 @@ export default function GameStatus({ game }: { game: MLB.ScheduleGame }) {
 				game.status.detailedState,
 			) && (
 				<time className="text-xs" dateTime={game.gameDate}>
-					{format(new Date(game.gameDate))}
+					{formatDate(game.gameDate, {
+						hour: 'numeric',
+						minute: 'numeric',
+						timeZoneName: 'shortGeneric',
+					})}
 				</time>
 			)}
 		</div>
