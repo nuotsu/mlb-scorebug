@@ -8,6 +8,7 @@ import Inning from './Inning'
 import BallsStrikes from './BallsStrikes'
 import Marquee from './Marquee'
 import AtBat from './AtBat'
+import GameStatus from './GameStatus'
 
 type States = MLB.GameStatus['detailedState'][]
 
@@ -28,8 +29,7 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 		data?.gameData.status.detailedState!,
 	)
 
-	if (!isLive)
-		return <div className="m-auto text-center">{game.status.detailedState}</div>
+	if (!isLive) return <GameStatus game={game} />
 
 	return (
 		<>
