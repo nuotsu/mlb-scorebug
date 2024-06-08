@@ -1,4 +1,4 @@
-import GameList from '@/ui/GameList'
+import GameList from '@/ui/game/GameList'
 
 export default function Page() {
 	return <GameList />
