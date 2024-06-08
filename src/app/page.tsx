@@ -1,5 +1,11 @@
-import GameList from '@/ui/GameList'
+import PlayerStats from '@/ui/player/PlayerStats'
+import GameList from '@/ui/game/GameList'
 
 export default function Page() {
-	return <GameList />
+	return (
+		<section className="grid gap-4 p-4 md:grid-cols-2">
+			<PlayerStats />
+			<GameList />
+		</section>
+	)
 }

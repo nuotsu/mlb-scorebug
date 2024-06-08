@@ -21,6 +21,13 @@
 		gap: 0.5em;
 	}
 
+	/* actions */
+
+	.action {
+		padding: 0.2em 0.8em;
+		@apply bg-ink text-canvas disabled:opacity-20;
+	}
+
 	/* components */
 
 	.pill {
