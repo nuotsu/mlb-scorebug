@@ -3,7 +3,7 @@ import GameList from '@/ui/game/GameList'
 
 export default function Page() {
 	return (
-		<section className="grid gap-4 p-4 md:grid-cols-2">
+		<section className="grid items-start gap-4 p-4 md:grid-cols-2">
 			<PlayerStats />
 			<GameList />
 		</section>

@@ -7,7 +7,7 @@ export default async function PlayerStats({}: {}) {
 	)
 
 	return (
-		<article>
+		<article className="md:sticky-below-header">
 			<h2>Players</h2>
 
 			<SelectPlayer players={people} />
