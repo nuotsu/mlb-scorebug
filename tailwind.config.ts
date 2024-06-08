@@ -1,3 +1,4 @@
+import plugin from 'tailwindcss/plugin'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -13,7 +14,13 @@ const config: Config = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/container-queries')],
+	plugins: [
+		require('@tailwindcss/container-queries'),
+		plugin(function ({ addVariant }) {
+			addVariant('hide-score', '.scorebug:has(.hide-score:checked) &')
+			addVariant('show-score', '.scorebug:has(.hide-score:not(:checked)) &')
+		}),
+	],
 }
 
 export default config

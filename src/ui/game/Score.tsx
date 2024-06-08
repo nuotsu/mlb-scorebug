@@ -1,7 +1,7 @@
 'use client'
 
 import { liveMLB } from '@/lib/mlb'
-import Panel from './Panel'
+import Panel from '../Panel'
 
 export default function Score({
 	game,

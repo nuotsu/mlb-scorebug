@@ -1,5 +1,5 @@
 import { fetchMLB } from '@/lib/mlb'
-import ScoreBug from '@/ui/ScoreBug'
+import ScoreBug from '@/ui/game/ScoreBug'
 import { cn } from '@/lib/utils'
 import formatDate from '@/lib/formatDate'
 
@@ -12,11 +12,11 @@ export default async function GameList() {
 
 	return (
 		<section>
-			<h2>
+			<h2 className="text-center">
 				{today?.totalGames} Games for {formatDate(today?.date)}
 			</h2>
 
-			<ul className="grid border border-b-0">
+			<ul className="max-sm:full-bleed grid border border-b-0">
 				{today?.games?.map((game) => (
 					<li
 						className={cn(

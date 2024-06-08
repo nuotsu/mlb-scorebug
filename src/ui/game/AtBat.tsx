@@ -1,4 +1,4 @@
-import Panel from './Panel'
+import Panel from '../Panel'
 
 export default function AtBat({ linescore }: { linescore: MLB.LiveLineScore }) {
 	return (

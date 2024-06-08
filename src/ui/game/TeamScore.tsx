@@ -20,7 +20,7 @@ export default async function TeamScore({
 					'flex w-[3ch] items-center gap-2',
 					game.status.abstractGameState === 'Final' &&
 						team?.isWinner &&
-						'font-semibold',
+						'show-score:font-semibold',
 				)}
 			>
 				<figure
@@ -47,7 +47,7 @@ export default async function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="w-[3ch] text-center">
+			<dd className="hide-score:invisible w-[3ch] text-center">
 				<Score game={game} side={side} />
 			</dd>
 		</>

@@ -6,6 +6,10 @@
 	* {
 		min-width: 0;
 	}
+
+	label {
+		cursor: pointer;
+	}
 }
 
 @layer components {
@@ -20,8 +24,7 @@
 	/* components */
 
 	.pill {
-		padding: 0.2em 0.8em;
-		border-radius: 4em;
+		@apply inline-block rounded-full px-[.8em] py-[.2em] bg-neutral-100;
 	}
 
 	.carousel {
@@ -37,6 +40,35 @@
 }
 
 @layer utilities {
+	.full-bleed {
+		width: 100vw;
+		margin-inline: calc(50% - 50vw);
+	}
+
+	._blur-gradient {
+		@apply from-canvas to-transparent;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			bottom: -1rem;
+			z-index: -1;
+			mask: linear-gradient(var(--dir), #000 var(--amount, 25%), transparent);
+			@apply backdrop-blur-sm backdrop-saturate-150;
+		}
+	}
+
+	.blur-gradient-to-b {
+		--dir: to bottom;
+		@apply _blur-gradient bg-gradient-to-b;
+	}
+
+	.blur-gradient-to-l {
+		--dir: to left;
+		@apply _blur-gradient bg-gradient-to-l;
+	}
+
 	.no-scrollbar {
 		-webkit-overflow-scrolling: touch;
 		overflow: auto;
@@ -62,7 +94,7 @@
 	.anim-fade-to-b {
 		--x: 0;
 		--y: 0;
-		animation: anim-fade-to 0.4s ease-in-out forwards;
+		animation: anim-fade-to 0.2s ease-in-out forwards;
 	}
 
 	.anim-fade-to-l {

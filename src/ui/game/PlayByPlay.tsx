@@ -1,12 +1,12 @@
 'use client'
 
 import { liveMLB } from '@/lib/mlb'
-import Loading from './Loading'
+import Loading from '../Loading'
 import BaseRunners, { getRunners } from './BaseRunners'
 import OutCount from './OutCount'
 import Inning from './Inning'
 import BallsStrikes from './BallsStrikes'
-import Marquee from './Marquee'
+import Marquee from '../Marquee'
 import AtBat from './AtBat'
 import GameStatus from './GameStatus'
 

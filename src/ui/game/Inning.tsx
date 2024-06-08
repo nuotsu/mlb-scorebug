@@ -1,5 +1,5 @@
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc'
-import Panel from './Panel'
+import Panel from '../Panel'
 import { cn } from '@/lib/utils'
 
 export default function Inning({

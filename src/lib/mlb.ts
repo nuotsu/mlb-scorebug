@@ -1,4 +1,5 @@
-import useSWR, { type SWRConfiguration } from 'swr'
+import useSWR from 'swr'
+import type { SWRConfiguration } from 'swr'
 
 const BASE_URL = 'https://statsapi.mlb.com'
 
