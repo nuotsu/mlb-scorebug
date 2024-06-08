@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+	:root {
+		--header-height: 0;
+	}
+
 	* {
 		min-width: 0;
 	}
