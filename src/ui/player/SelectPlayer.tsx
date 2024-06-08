@@ -24,19 +24,20 @@ export default function SelectPlayer({ players }: { players: MLB.Player[] }) {
 
 				<input
 					ref={inputRef}
-					className="grow"
+					className="grow border"
 					type="search"
 					list="players-list"
 					placeholder="Search"
+					onInput={(e) => set$query(e.currentTarget.value)}
 					onKeyUp={(e) => {
 						const playerId = getPlayerId(e.currentTarget.value)
 
 						if (e.key === 'Enter' && !!playerId) {
 							add(playerId)
 							e.currentTarget.value = ''
-						} else {
-							set$query(e.currentTarget.value)
 						}
+
+						set$query(e.currentTarget.value)
 					}}
 				/>
 
