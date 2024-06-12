@@ -12,3 +12,5 @@ export function count(
 ) {
 	return `${value || 0} ${value === 1 ? singular : plural || singular + 's'}`
 }
+
+export const dev = process.env.NODE_ENV === 'development'

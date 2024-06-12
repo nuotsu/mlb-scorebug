@@ -15,7 +15,7 @@ export default function ScoreBug({ game }: { game: MLB.ScheduleGame }) {
 				<PlayByPlay game={game} />
 			</div>
 
-			<HideScore />
+			<HideScore game={game} />
 		</dl>
 	)
 }

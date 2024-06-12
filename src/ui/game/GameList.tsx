@@ -1,7 +1,7 @@
 import { fetchMLB } from '@/lib/mlb'
 import ScoreBug from '@/ui/game/ScoreBug'
-import { cn } from '@/lib/utils'
 import formatDate from '@/lib/formatDate'
+import { cn } from '@/lib/utils'
 
 export default async function GameList() {
 	const { dates } = await fetchMLB<MLB.Schedule>('/schedule', {
