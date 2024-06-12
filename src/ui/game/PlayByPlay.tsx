@@ -9,6 +9,7 @@ import BallsStrikes from './BallsStrikes'
 import Marquee from '../Marquee'
 import AtBat from './AtBat'
 import GameStatus from './GameStatus'
+import Homerun from './Homerun'
 
 type States = MLB.GameStatus['detailedState'][]
 
@@ -31,6 +32,8 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 
 	if (!isLive) return <GameStatus game={game} />
 
+	const { description } = currentPlay?.result || {}
+
 	return (
 		<>
 			{inReview && (
@@ -39,8 +42,10 @@ export default function PlayByPlay({ game }: { game: MLB.ScheduleGame }) {
 				</p>
 			)}
 
+			<Homerun play={description} />
+
 			<Marquee className="absolute -inset-x-2 -bottom-1 text-xxs">
-				{currentPlay?.result.description}
+				{description}
 			</Marquee>
 
 			<div className="flex items-center gap-4">

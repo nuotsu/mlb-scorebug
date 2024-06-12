@@ -21,10 +21,16 @@ export default function Inning({
 
 			<div className="grid text-xs *:my-[-2px] *:transition-opacity">
 				<VscTriangleUp
-					className={cn(linescore.inningState !== 'Top' && 'opacity-10')}
+					className={cn(
+						linescore.inningState === 'Top' ? 'text-orange-500' : 'opacity-10',
+					)}
 				/>
 				<VscTriangleDown
-					className={cn(linescore.inningState !== 'Bottom' && 'opacity-10')}
+					className={cn(
+						linescore.inningState === 'Bottom'
+							? 'text-orange-500'
+							: 'opacity-10',
+					)}
 				/>
 			</div>
 		</div>

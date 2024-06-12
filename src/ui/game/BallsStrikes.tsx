@@ -14,7 +14,9 @@ export default function BallsStrikes({
 			className={cn('flex shrink-0 tabular-nums', className)}
 			title="Balls-Strikes"
 		>
-			<Panel>{balls}</Panel>-<Panel>{strikes}</Panel>
+			<Panel className="text-green-700">{balls}</Panel>
+			{'-'}
+			<Panel className="text-amber-500">{strikes}</Panel>
 		</div>
 	)
 }

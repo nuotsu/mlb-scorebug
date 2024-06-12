@@ -6,8 +6,8 @@ export default function OutCount({ value = 0 }: { value?: number }) {
 			{Array.from({ length: 3 }, (_, i) => (
 				<div
 					className={cn(
-						'@sm:size-2 size-[6px] rounded-full transition-colors',
-						value >= i + 1 ? 'bg-current' : 'bg-ink/10',
+						'size-[6px] rounded-full transition-colors @sm:size-2',
+						value >= i + 1 ? 'bg-red-600' : 'bg-ink/10',
 					)}
 					key={i}
 				/>

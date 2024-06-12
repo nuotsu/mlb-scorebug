@@ -12,8 +12,8 @@ export default async function GameList() {
 
 	return (
 		<section>
-			<h2 className="text-center">
-				{today?.totalGames} Games for {formatDate(today?.date)}
+			<h2 className="p-2 text-center">
+				<b>{today?.totalGames} Games</b> for <b>{formatDate(today?.date)}</b>
 			</h2>
 
 			<ul className="max-sm:full-bleed grid border border-b-0">
