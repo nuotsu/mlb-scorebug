@@ -50,7 +50,7 @@ export default function TeamScore({
 					</abbr>
 
 					<small
-						className="hidden shrink-0 text-[xx-small] @xs:block"
+						className="hidden shrink-0 text-[xx-small] opacity-60 @xs:block"
 						title="Wins-Losses"
 					>
 						({team.leagueRecord.wins}-{team.leagueRecord.losses})

@@ -16,15 +16,15 @@ export default function GameList() {
 
 	return (
 		<section>
-			<h2 className="p-2 text-center">
+			<h2 className="p-2 text-center text-sm">
 				<b>{today?.totalGames} Games</b> for <b>{formatDate(today?.date)}</b>
 			</h2>
 
-			<ul className="max-sm:full-bleed grid border border-b-0 dark:border-canvas/20">
+			<ul className="max-sm:full-bleed grid border-4 border-b-[3px] dark:border-canvas/15">
 				{today?.games?.map((game) => (
 					<li
 						className={cn(
-							'border-b dark:border-[inherit]',
+							'border-b-[.5px] dark:border-[inherit]',
 							game.status.abstractGameState !== 'Final' && 'order-first',
 						)}
 						key={game.gamePk}

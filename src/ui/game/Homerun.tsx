@@ -19,7 +19,7 @@ export default function Homerun({ play }: { play?: string }) {
 	const scoringPlay = ['homers', 'scores'].some((type) => play?.includes(type))
 
 	return (
-		<div ref={ref} key={play}>
+		<div className="empty:hidden" ref={ref} key={play}>
 			{scoringPlay &&
 				parent &&
 				createPortal(<Confetti className="hide-score:hidden" />, parent)}

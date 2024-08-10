@@ -5,7 +5,7 @@ export default function Logo() {
 		<>
 			<figure
 				className={cn(
-					'colors -z-1 overflow-fade pointer-events-none absolute right-[calc(50%+1rem)] size-1/2 opacity-20',
+					'colors -z-1 overflow-fade pointer-events-none absolute right-[calc(50%+1rem)] size-1/2 opacity-0 sm:opacity-20',
 					'bg-[image:var(--light)] bg-[size:4rem] bg-right bg-no-repeat dark:bg-[image:var(--dark)]',
 				)}
 			/>
