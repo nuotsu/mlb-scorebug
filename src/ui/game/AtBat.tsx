@@ -17,7 +17,11 @@ export default function AtBat({ linescore }: { linescore: MLB.LiveLineScore }) {
 				{'AB: '}
 				<Panel>
 					{linescore.offense.batter.fullName}{' '}
-					{batter && <small>{batter.primaryPosition.abbreviation}</small>}
+					{batter && (
+						<small className="opacity-50">
+							{batter.primaryPosition.abbreviation}
+						</small>
+					)}
 				</Panel>
 			</div>
 		</div>

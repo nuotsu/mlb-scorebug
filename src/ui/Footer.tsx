@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="p-4 text-center text-xs">
+		<footer className="mb-[env(safe-area-inset-bottom)] p-4 text-center text-xs">
 			{'</> by '}
 
 			<a
