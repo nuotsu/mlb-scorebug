@@ -44,9 +44,9 @@ export function liveMLB<T = unknown>(
 
 /* specific fetchers */
 
-export async function getTeamMeta(team: MLB.NameableObject) {
-	const { teams } = await fetchMLB<{ teams: MLB.Team[] }>(team.link)
-	return teams?.[0]
+export function getTeamMeta(team: MLB.NameableObject) {
+	const { data } = liveMLB<{ teams: MLB.Team[] }>(team.link)
+	return data?.teams?.[0]
 }
 
 export function getWinnerProb(game: MLB.ScheduleGame) {

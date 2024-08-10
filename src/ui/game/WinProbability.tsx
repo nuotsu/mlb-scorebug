@@ -1,7 +1,7 @@
 'use client'
 
 import { getWinnerProb } from '@/lib/mlb'
-import Panel from '../Panel'
+import Panel from '@/ui/Panel'
 
 export default function WinProbability({
 	game,
@@ -16,7 +16,7 @@ export default function WinProbability({
 		side === winner &&
 		probability !== 50 &&
 		game.status.detailedState === 'In Progress' && (
-			<strong className="pill anim-fade hide-score:invisible shrink-0 bg-green-100 text-xxs tabular-nums text-green-600">
+			<strong className="pill anim-fade shrink-0 bg-green-100 text-xxs tabular-nums text-green-600 hide-score:invisible">
 				<Panel>{probability?.toFixed(1)}%</Panel>
 			</strong>
 		)

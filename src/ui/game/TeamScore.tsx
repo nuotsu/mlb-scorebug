@@ -1,9 +1,11 @@
+'use client'
+
 import { getTeamMeta } from '@/lib/mlb'
 import WinProbability from './WinProbability'
 import Score from './Score'
 import { cn } from '@/lib/utils'
 
-export default async function TeamScore({
+export default function TeamScore({
 	side,
 	game,
 }: {
@@ -11,7 +13,7 @@ export default async function TeamScore({
 	game: MLB.ScheduleGame
 }) {
 	const team = game.teams[side]
-	const meta = await getTeamMeta(team.team)
+	const meta = getTeamMeta(team.team)
 
 	return (
 		<>
@@ -47,7 +49,7 @@ export default async function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="hide-score:invisible w-[3ch] text-center">
+			<dd className="w-[3ch] text-center hide-score:invisible">
 				<Score game={game} side={side} />
 			</dd>
 		</>

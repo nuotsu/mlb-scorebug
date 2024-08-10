@@ -1,14 +1,18 @@
-import { fetchMLB } from '@/lib/mlb'
+'use client'
+
+import { liveMLB } from '@/lib/mlb'
 import ScoreBug from '@/ui/game/ScoreBug'
 import formatDate from '@/lib/formatDate'
 import { cn } from '@/lib/utils'
 
-export default async function GameList() {
-	const { dates } = await fetchMLB<MLB.Schedule>('/schedule', {
+export default function GameList() {
+	const { data } = liveMLB<MLB.Schedule>('/schedule', {
 		sportId: '1',
 	})
 
-	const today = dates?.[0]
+	const today = data?.dates?.[0]
+
+	if (!today) return null
 
 	return (
 		<section>
