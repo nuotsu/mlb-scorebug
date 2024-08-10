@@ -11,7 +11,12 @@ export default function Marquee({
 
 	return (
 		// @ts-ignore
-		<marquee className={cn('absolute -inset-x-2 text-xxs', className)}>
+		<marquee
+			className={cn(
+				'overflow-fade absolute -inset-x-2 text-xxs [--offset:2rem]',
+				className,
+			)}
+		>
 			{children}
 			{/* @ts-ignore */}
 		</marquee>

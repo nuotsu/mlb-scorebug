@@ -5,7 +5,7 @@ import HideScore from './HideScore'
 export default function ScoreBug({ game }: { game: MLB.ScheduleGame }) {
 	return (
 		<dl
-			className="scorebug group relative grid grid-cols-[1fr,auto,1fr] gap-x-3 gap-y-1 overflow-hidden px-2 py-1 @container *:leading-none"
+			className="scorebug group/scorebug relative grid grid-cols-[1fr,auto,1fr] gap-x-3 gap-y-1 overflow-hidden px-2 py-1 @container *:leading-none"
 			tabIndex={0}
 		>
 			<TeamScore side="away" game={game} />

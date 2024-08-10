@@ -14,7 +14,7 @@ export default function HideScore({ game }: { game: MLB.ScheduleGame }) {
 	}, [])
 
 	return (
-		<div className="anim-fade-to-l absolute inset-y-0 right-0 hidden place-content-center gap-2 px-4 group-hover:grid group-focus-visible:grid hide-score:grid">
+		<div className="anim-fade-to-l absolute inset-y-0 right-0 hidden place-content-center gap-2 px-4 group-hover/scorebug:grid group-focus-visible/scorebug:grid hide-score:grid">
 			<div className="blur-gradient-to-l absolute inset-0 -left-16 [--amount:50%]" />
 
 			<label className="relative flex gap-2">

@@ -53,7 +53,7 @@ export default function TeamScore({
 				</div>
 			</dt>
 
-			<dd className="w-[3ch] text-center hide-score:invisible">
+			<dd className="w-[3ch] text-center group-has-[time]/scorebug:opacity-20 hide-score:invisible">
 				<Score game={game} side={side} />
 			</dd>
 		</>

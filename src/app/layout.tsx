@@ -2,7 +2,7 @@ import Header from '@/ui/Header'
 import Footer from '@/ui/Footer'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
-import '@/styles/globals.css'
+import '@/styles/app.css'
 
 export const metadata: Metadata = {
 	title: 'MLB ScoreBug',

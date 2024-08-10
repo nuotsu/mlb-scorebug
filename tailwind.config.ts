@@ -9,6 +9,9 @@ const config: Config = {
 				ink: '#000',
 				canvas: '#fff',
 			},
+			fontFamily: {
+				sans: `'Chakra Petch', sans-serif`,
+			},
 			fontSize: {
 				xxs: 'xx-small',
 			},

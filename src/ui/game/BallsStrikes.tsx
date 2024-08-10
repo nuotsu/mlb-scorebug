@@ -11,12 +11,12 @@ export default function BallsStrikes({
 } & React.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
-			className={cn('flex shrink-0 tabular-nums', className)}
+			className={cn('flex shrink-0 text-center tabular-nums', className)}
 			title="Balls-Strikes"
 		>
-			<Panel className="text-green-700">{balls}</Panel>
+			<Panel className="w-[1ch] text-green-700">{balls}</Panel>
 			{'-'}
-			<Panel className="text-amber-500">{strikes}</Panel>
+			<Panel className="w-[1ch] text-amber-500">{strikes}</Panel>
 		</div>
 	)
 }
