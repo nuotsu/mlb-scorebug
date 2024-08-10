@@ -26,12 +26,13 @@ export default function TeamScore({
 				)}
 			>
 				<figure
-					className="aspect-square size-6 shrink-0 bg-contain bg-center bg-no-repeat"
-					style={{
-						backgroundImage:
-							meta &&
-							`url(https://www.mlbstatic.com/team-logos/team-cap-on-light/${meta?.id}.svg)`,
-					}}
+					className="aspect-square size-6 shrink-0 bg-[image:var(--light)] bg-contain bg-center bg-no-repeat dark:bg-[image:var(--dark)]"
+					style={
+						{
+							'--light': `url(https://www.mlbstatic.com/team-logos/team-cap-on-light/${meta?.id}.svg)`,
+							'--dark': `url(https://www.mlbstatic.com/team-logos/team-cap-on-dark/${meta?.id}.svg)`,
+						} as React.CSSProperties
+					}
 				/>
 
 				<div className="flex flex-wrap items-center gap-1 @xs:flex-nowrap">

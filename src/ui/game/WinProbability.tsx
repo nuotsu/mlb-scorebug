@@ -16,7 +16,7 @@ export default function WinProbability({
 		side === winner &&
 		probability !== 50 &&
 		game.status.detailedState === 'In Progress' && (
-			<strong className="pill anim-fade shrink-0 bg-green-100 text-xxs tabular-nums text-green-600 hide-score:invisible">
+			<strong className="pill anim-fade shrink-0 bg-green-100 text-xxs tabular-nums text-green-600 hide-score:invisible dark:bg-green-600/20">
 				<Panel>{probability?.toFixed(1)}%</Panel>
 			</strong>
 		)

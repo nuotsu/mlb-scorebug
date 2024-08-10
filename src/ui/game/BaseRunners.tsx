@@ -7,7 +7,9 @@ export default function BaseRunners({ runners }: { runners?: number[] }) {
 				<div
 					className={cn(
 						'aspect-square size-2 transition-colors @sm:size-3',
-						runners?.includes(i) ? 'bg-amber-400' : 'bg-ink/10',
+						runners?.includes(i)
+							? 'bg-amber-400'
+							: 'bg-ink/10 dark:bg-canvas/15',
 					)}
 					key={i}
 				/>

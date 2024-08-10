@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="bg-canvas text-ink">
+			<body className="bg-canvas text-ink dark:bg-ink dark:text-canvas">
 				<Header />
 				<main>{children}</main>
 				<Footer />

@@ -20,11 +20,11 @@ export default function GameList() {
 				<b>{today?.totalGames} Games</b> for <b>{formatDate(today?.date)}</b>
 			</h2>
 
-			<ul className="max-sm:full-bleed grid border border-b-0">
+			<ul className="max-sm:full-bleed grid border border-b-0 dark:border-canvas/20">
 				{today?.games?.map((game) => (
 					<li
 						className={cn(
-							'border-b',
+							'border-b dark:border-[inherit]',
 							game.status.abstractGameState !== 'Final' && 'order-first',
 						)}
 						key={game.gamePk}

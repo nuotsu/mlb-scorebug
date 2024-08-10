@@ -57,7 +57,7 @@
 	}
 
 	._blur-gradient {
-		@apply from-canvas to-transparent;
+		@apply from-canvas dark:from-ink to-transparent;
 
 		&::before {
 			content: '';
